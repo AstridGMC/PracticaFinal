@@ -55,6 +55,14 @@ public class Dado extends javax.swing.JPanel {
 
     public void seisCaras(){
         
+        int numeroRandom = (int) (Math.random() * 5 + 1);
+        
+    }
+    
+    public void cienCaras(){
+        
+        int numeroRandom = (int) (Math.random() * 5 + 1);
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
