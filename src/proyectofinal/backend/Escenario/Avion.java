@@ -15,9 +15,9 @@ public class Avion extends Vehiculo {
    
     public static void agregarImagen(JLabel[][] casillas, JLabel terreno, int x, int y){
         JLabel nuevos = new JLabel();
-        nuevos.setBounds(terreno.getX(), terreno.getY(), terreno.getHeight(), terreno.getWidth());
+        nuevos.setBounds(terreno.getX(), terreno.getY(), 100, 100);
         ImageIcon tanque = new ImageIcon("tanque.png");
-        casillas[x][y].setIcon(new ImageIcon(tanque.getImage().getScaledInstance(terreno.getHeight(), terreno.getWidth(), Image.SCALE_SMOOTH)));
+        casillas[x][y].setIcon(new ImageIcon(tanque.getImage().getScaledInstance(150, 100, Image.SCALE_SMOOTH)));
         Escenario.getEscenarios()[x][y]=8;
         System.out.println(casillas[x][y]);
     }

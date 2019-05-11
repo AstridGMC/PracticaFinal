@@ -78,7 +78,7 @@ public class EscenarioMontañoso {
     public JPanel montañoso(){
         Border border = BorderFactory.createLineBorder(Color.BLACK, 2);
         JPanel miMontañoso = new JPanel();
-        casillas = new JLabel[6][4];
+        casillas = new JLabel[8][9];
         listenerTeclado(miMontañoso);
         for(int y=0; y < casillas.length; y++) {
             for(int x=0; x < casillas[y].length; x++) {
@@ -107,7 +107,7 @@ public class EscenarioMontañoso {
                 }
             }
         }
-        miMontañoso.setLayout(new GridLayout(6, 4));
+        miMontañoso.setLayout(new GridLayout(8, 9));
     return miMontañoso;
     }
 

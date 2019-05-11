@@ -39,7 +39,7 @@ public class EscenarioJungla {
             for(int x=0; x < casillas[y].length; x++) {
                 terrenoClase = new JLabel();
                 miJungla.add(terrenoClase);
-                int terrenoRandom = (int) (Math.random() * 2 + 1);
+                int terrenoRandom = (int) (Math.random() * 3 + 1);
                  listenerCasilla(terrenoClase, y, x);
                 altoCasilla = terrenoClase.getHeight();
                 anchoCasilla = terrenoClase.getWidth();
