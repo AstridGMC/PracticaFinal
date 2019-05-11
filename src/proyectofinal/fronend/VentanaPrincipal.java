@@ -270,9 +270,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 }
                 irTiendabtn.setVisible(false);
                 btnTienda.setVisible(false);
+                
                 salir.setVisible(true);
                 btnSalida.setVisible(true);
-                
+                menuAgregar.setVisible(true);
+                btTanque.setVisible(true);
+                btnAvion.setVisible(true);
             }
         }
     }//GEN-LAST:event_btnInicioActionPerformed
@@ -282,7 +285,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerJugadoresActionPerformed
 
     private void btnSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalidaActionPerformed
-         salida.setVisible(true);
+        salida.setVisible(true);
+        menuAgregar.setVisible(true);
+        btTanque.setVisible(true);
+        btnAvion.setVisible(true);
         if(salida.salio ==1 ){
             componentes();
             
@@ -311,6 +317,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAvionActionPerformed
 
     public void diseño(){
+        menuAgregar.setVisible(false);
+        btTanque.setVisible(false);
+        btnAvion.setVisible(false);
         salir.setVisible(false);
         btnSalida.setVisible(false);
         this.setResizable(false); 
@@ -324,6 +333,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         imagenPanel.add(imagen);
     }
     
+    //agrega tablero playa al panel
     public void agregarTableroPlaya(){
         imagenPanel.setVisible(true);
         imagenPanel.setLayout(new GridLayout(1, 1));
@@ -334,7 +344,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             imagenPanel.setPreferredSize(new Dimension(this.getHeight(), this.getWidth()));
         }
     }
-    
+    //agrega tablero Jungla al panel
     public void agregarTableroJungla(){ 
         imagenPanel.setVisible(true);
         imagenPanel.setLayout(new GridLayout(1, 1));
@@ -343,7 +353,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         imagenPanel.setVisible(true);
         imagenPanel.setFocusable(false);
     }
-    
+    //agrega tablero Montañoso al panel
     public void agregarTableroMontañoso(){
         imagenPanel.setVisible(true);
         imagenPanel.setLayout(new GridLayout(1, 1));
@@ -354,6 +364,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             imagenPanel.setPreferredSize(new Dimension(this.getHeight(), this.getWidth()));
         }
     }
+    
+    
       public  void componentes(){
         imagenPanel.setVisible(false);
         imagenPanel.removeAll();

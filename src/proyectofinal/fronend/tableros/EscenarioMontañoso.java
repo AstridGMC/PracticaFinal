@@ -225,7 +225,7 @@ public class EscenarioMontañoso {
                     System.out.println("IZQUIERDA");
                     
                     if(VentanaPrincipal.vehiculoId==1){
-                        if(tipoTerreno[fila][columna+1]!=7){
+                        if(tipoTerreno[fila][columna-1]!=7){
                              casillas[fila][columna].setIcon(null);
                             movimiento.movimientoIzquierdo(miAvion,casillas, casillas[fila][columna], fila, columna);
                             columna = columna-1;
