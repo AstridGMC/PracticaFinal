@@ -15,6 +15,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
+import proyectofinal.backend.Escenario.Avion;
 import proyectofinal.backend.Escenario.Montaña;
 import proyectofinal.backend.Escenario.TerrenoNormal;
 
@@ -25,12 +26,31 @@ import proyectofinal.backend.Escenario.TerrenoNormal;
 public class EscenarioMontañoso {
     Montaña miMontaña = new Montaña();
     TerrenoNormal miTerrenoNormal = new TerrenoNormal();
+    Avion miAvion = new Avion();
     protected int tipo;
     public static JLabel[][] casillas;
     static JLabel terrenoClase; 
     protected int fila;
     protected int columna;
     public String NOMBRE = "MONTAÑOSO";
+
+    public int getFila() {
+        return fila;
+    }
+
+    public void setFila(int fila) {
+        this.fila = fila;
+    }
+
+    public int getColumna() {
+        return columna;
+    }
+
+    public void setColumna(int columna) {
+        this.columna = columna;
+    }
+    
+    
 
     public Montaña getMiMontaña() {
         return miMontaña;
@@ -116,13 +136,19 @@ public class EscenarioMontañoso {
         fila = i;
         columna =j;
     }
-    
+     int aviones =0;
     public void listenerCasilla(JLabel casilla,int i, int j){
         MouseListener oyenteDeRaton = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                obtenerCasilla(i,j);
-                System.out.println(i+j);
+               
+                if(aviones ==0){
+                    obtenerCasilla(i,j);
+                    System.out.println(i+j);
+                    miAvion.agregarImagen(casillas, terrenoClase, i, j);
+                    aviones++;
+                }
+                
                 
                // pieza.setVisible(true);
             }
@@ -163,15 +189,26 @@ public class EscenarioMontañoso {
             public void keyPressed(KeyEvent e){
                 
                 if (e.getKeyCode() == KeyEvent.VK_UP) {
-                System.out.println(e.getKeyCode());
-                
+                    System.out.println(e.getKeyCode());
+                    casillas[fila][columna].setIcon(null);
+                    miAvion.movimientoArriba(casillas, casillas[fila][columna], fila, columna);
+                    fila = fila-1;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
                     System.out.println("IZQUIERDA");
+                    casillas[fila][columna].setIcon(null);
+                    miAvion.movimientoIzquierdo(casillas, casillas[fila][columna], fila, columna);
+                    columna = columna-1;
                 }
                  if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
                     System.out.println("DERECHA");
+                    casillas[fila][columna].setIcon(null);
+                    miAvion.movimientoDerecha(casillas, casillas[fila][columna], fila, columna);
+                    columna = columna+1;
                 }
+                 if(e.getKeyCode() == KeyEvent.VK_DOWN){
+                     
+                 }
                 }
             @Override
                 public void keyReleased(KeyEvent e){

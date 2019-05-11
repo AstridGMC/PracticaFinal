@@ -1,5 +1,6 @@
   
 package proyectofinal.backend.Escenario;
+import javax.swing.ImageIcon;
 import proyectofinal.backend.Escenario.Jugador;
 
 public class Vehiculo {
@@ -12,6 +13,7 @@ public class Vehiculo {
     protected  int HP = (50 );
     protected  int PP = (3 + 2 );
     protected  int velocidadDisparo;
+    static ImageIcon imagen = new ImageIcon("portada.png");
     
     public static void vehiculo(){
         
@@ -28,6 +30,16 @@ public class Vehiculo {
             //miArma.municiones--;
         //}else if(disparo>60){
             System.out.println("ha fallado");}
+
+    public ImageIcon getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(ImageIcon imagen) {
+        this.imagen = imagen;
+    }
+
+    
 
     public int getAtaque() {
         return ataque;

@@ -11,9 +11,18 @@ public class Jugador {
     protected  int necesario = 50;    //experiencia necesaria para subir de nivel   
     protected ArrayList <Jugador> jugadores = new ArrayList();
     protected Vehiculo[] Vehiculos =new Vehiculo[2];
+    public Arma arma;
     
     
     static Scanner miScaner = new Scanner(System.in);
+
+    public Arma getArma() {
+        return arma;
+    }
+
+    public void setArma(Arma arma) {
+        this.arma = arma;
+    }
     
     
 
@@ -85,4 +94,6 @@ public class Jugador {
         ComprarKit.mostrarMisKits();
         MenuPrincipal.regresarAlMenu();
     }*/
+
+  
 }

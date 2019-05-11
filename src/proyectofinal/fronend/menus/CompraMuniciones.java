@@ -2,6 +2,8 @@
 package proyectofinal.fronend.menus;
 
 import javax.swing.JOptionPane;
+import proyectofinal.backend.Escenario.Jugador;
+import proyectofinal.backend.Escenario.Cañon;
 
 public class CompraMuniciones extends javax.swing.JPanel {
 
@@ -216,6 +218,7 @@ public class CompraMuniciones extends javax.swing.JPanel {
         } else if(btnCañon.isSelected()){
             if(rbtnMayor.isSelected()){
                 System.out.println("Cañon mayor");
+                
                 this.setVisible(false);
             }else if (rbtnMenor.isSelected()){
                 System.out.println("Cañon menor");
@@ -229,6 +232,7 @@ public class CompraMuniciones extends javax.swing.JPanel {
                 this.setVisible(false);
             }else if (rbtnMenor.isSelected()){
                 System.out.println("Creadas menor");
+                
                 this.setVisible(false);
             }else{
                 JOptionPane.showMessageDialog(null,"es necesario rellenar los campos");
