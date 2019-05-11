@@ -38,6 +38,7 @@ public class EscenarioMontañoso {
     static JLabel terrenoClase; 
     protected int fila;
     protected int columna;
+    public  int vehiculos =0;
     public String NOMBRE = "MONTAÑOSO";
 
     public int getFila() {
@@ -121,12 +122,11 @@ public class EscenarioMontañoso {
                     tipoTerreno[y][x]=7;
                 }else if (terrenoRandom == 2){
                     tipo = terrenoRandom;
-                    tipoTerreno[y][x]=6;
                     terrenoClase.setBackground(miTerrenoNormal.getTerreno());
                     terrenoClase.setBorder(border);
                     terrenoClase.setOpaque(true);
                     casillas[y][x]=terrenoClase;
-                    
+                    tipoTerreno[y][x]=6;
                 } else{
                     tipo = terrenoRandom;
                     terrenoClase.setBackground(miMontaña.getTerreno());
@@ -146,7 +146,7 @@ public class EscenarioMontañoso {
         fila = i;
         columna =j;
     }
-     int vehiculos =0;
+    
     public void listenerCasilla(JLabel casilla,int i, int j){
         MouseListener oyenteDeRaton = new MouseListener() {
             @Override
@@ -192,7 +192,7 @@ public class EscenarioMontañoso {
          casilla.addMouseListener(oyenteDeRaton);
     }
     
-    //movimiento en el terreno montañoso
+    
         public void listenerTeclado(JPanel miPanel) {
         //Invocamos el método, ahora si funcionara
         miPanel.setFocusable(true);
@@ -207,45 +207,49 @@ public class EscenarioMontañoso {
                 
                 if (e.getKeyCode() == KeyEvent.VK_UP) {
                     System.out.println(e.getKeyCode());
+                    
+                    //miAvion.movimientoArriba(casillas, casillas[fila][columna], fila, columna);
                      if(VentanaPrincipal.vehiculoId==1){
-                         if(tipoTerreno[fila-1][columna]!=7){
+                        if(tipoTerreno[fila-1][columna]!=7){
+                            casillas[fila][columna].setIcon(null);
                         movimiento.movimientoArriba(miAvion, casillas, casillas[fila][columna], fila, columna);
-                        fila = fila-1;
-                        casillas[fila][columna].setIcon(null);}}
-                     else if(VentanaPrincipal.vehiculoId==2){
+                         fila = fila-1;}else{fila = fila;}
+                     }else if(VentanaPrincipal.vehiculoId==2){
+                         casillas[fila][columna].setIcon(null);
                         movimiento.movimientoArriba(miTanque, casillas, casillas[fila][columna], fila, columna);
                         fila = fila-1;
-                        casillas[fila][columna].setIcon(null);
                     }
                     
                 }
-                
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
                     System.out.println("IZQUIERDA");
+                    
                     if(VentanaPrincipal.vehiculoId==1){
-                        if(tipoTerreno[fila][columna-1]!=7){
-                        movimiento.movimientoIzquierdo(miAvion,casillas, casillas[fila][columna], fila, columna);
-                        columna = columna-1;
-                        casillas[fila][columna].setIcon(null);}
+                        if(tipoTerreno[fila][columna+1]!=7){
+                             casillas[fila][columna].setIcon(null);
+                            movimiento.movimientoIzquierdo(miAvion,casillas, casillas[fila][columna], fila, columna);
+                            columna = columna-1;
+                        }else{fila = fila;}
                     }else if(VentanaPrincipal.vehiculoId==2){
+                        casillas[fila][columna].setIcon(null);
                         movimiento.movimientoIzquierdo(miTanque,casillas, casillas[fila][columna], fila, columna);
                         columna = columna-1;
-                        casillas[fila][columna].setIcon(null);
                     }
+                    
                 }
-                
                  if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
                     System.out.println("DERECHA");
                     
                     if(VentanaPrincipal.vehiculoId==1){
-                        if(tipoTerreno[fila][columna-1]!=7){
+                        if(tipoTerreno[fila][columna+1]!=7){
+                            casillas[fila][columna].setIcon(null);
                         movimiento.movimientoDerecha(miAvion,casillas, casillas[fila][columna], fila, columna);
-                        casillas[fila][columna].setIcon(null);
-                        columna = columna+1;}
+                        columna = columna+1;
+                        }else{fila = fila;}
                     }else if(VentanaPrincipal.vehiculoId==2){
+                        casillas[fila][columna].setIcon(null);
                         movimiento.movimientoDerecha(miTanque,casillas, casillas[fila][columna], fila, columna);
                         columna = columna+1;
-                        casillas[fila][columna].setIcon(null);
                     }
                     
                 }

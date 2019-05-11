@@ -135,32 +135,5 @@ public class EscenarioPlaya   {
                 }
         });
     }
-       
- /*
- public void oyenteTeclado(JLabel casilla, Vehiculo miVehiculo, JPanel miPanel){
-        KeyListener flechas = new KeyListener() {
-        @Override
-        public void keyTyped(KeyEvent e) {
-            
-         }
 
-        @Override
-        public void keyPressed(KeyEvent e) {
-            if (e.getKeyCode() == KeyEvent.VK_UP) {
-                System.out.println(e.getKeyCode());
-            }
-            if (e.getKeyCode() == KeyEvent.VK_KP_LEFT) {
-                System.out.println("abajo");
-            }
-            System.out.println("looo");
-         }
-
-        @Override
-        public void keyReleased(KeyEvent e) {
-         }
-    };
-   
-    miPanel.addKeyListener(flechas);
-    
- }*/
 }
