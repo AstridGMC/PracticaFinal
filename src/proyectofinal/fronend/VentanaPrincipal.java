@@ -17,8 +17,8 @@ import proyectofinal.fronend.tableros.EscenarioMontañoso;
 import proyectofinal.fronend.tableros.EscenarioPlaya;
 
 public class VentanaPrincipal extends javax.swing.JFrame {
-   protected int numeroVehiculos=0;
-    protected int vehiculoId =0;
+    protected int numeroVehiculos=0;
+    public static int vehiculoId =0;
     PedirNombre agregarJugador = new PedirNombre(this);
     NuevoJuego iniciarJuego = new NuevoJuego(this);
     TipoTablero miTablero = new TipoTablero(this);
@@ -39,6 +39,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     public void setImagenPanel(JPanel imagenPanel) {
         this.imagenPanel = imagenPanel;
+    }
+
+    public int getVehiculoId() {
+        return vehiculoId;
+    }
+
+    public void setVehiculoId(int vehiculoId) {
+        this.vehiculoId = vehiculoId;
     }
    
     
@@ -294,7 +302,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void btTanqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTanqueActionPerformed
         numeroVehiculos++;
-        vehiculoId = 0;
+        vehiculoId = 2;
     }//GEN-LAST:event_btTanqueActionPerformed
 
     private void btnAvionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvionActionPerformed

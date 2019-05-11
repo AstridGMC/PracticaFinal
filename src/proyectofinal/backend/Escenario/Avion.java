@@ -33,34 +33,5 @@ public class Avion extends Vehiculo {
         System.out.println(casillas[x][y]);
     }
     
-    public void movimientoArriba(JLabel[][] casillas,JLabel etiqueta,int x, int y){
-        posicionX = etiqueta.getX();
-        posicionY = etiqueta.getY();
-        System.out.println(posicionX);
-        for(int i=0; i<= etiqueta.getHeight(); i++){
-        etiqueta.setLocation(posicionX, posicionY - i);  
-        casillas[x-1][y].setIcon(new ImageIcon(avion.getImage().getScaledInstance(80, 60, Image.SCALE_SMOOTH)));
-        
-        }
-    }
-    
-    public void movimientoDerecha(JLabel[][] casillas,JLabel etiqueta,int x, int y){
-        posicionX = etiqueta.getX();
-        posicionY = etiqueta.getY();
-        System.out.println(posicionX);
-        for(int i=0; i<= etiqueta.getWidth(); i++){
-        etiqueta.setLocation(posicionX+i, posicionY );  
-        }
-        casillas[x][y+1].setIcon(new ImageIcon(avion.getImage().getScaledInstance(80, 60, Image.SCALE_SMOOTH)));
-    }
-    
-    public void movimientoIzquierdo(JLabel[][] casillas,JLabel etiqueta,int x, int y){
-        posicionX = etiqueta.getX();
-        posicionY = etiqueta.getY();
-        for(int i=0; i<= etiqueta.getWidth(); i++){
-            etiqueta.setLocation(posicionX-i, posicionY );  
-            casillas[x][y-1].setIcon(new ImageIcon(avion.getImage().getScaledInstance(80, 60, Image.SCALE_SMOOTH)));
-        }
-        
-    }
+
 }
