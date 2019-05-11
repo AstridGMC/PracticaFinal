@@ -61,7 +61,13 @@ public class Dado extends javax.swing.JPanel {
     
     public void cienCaras(){
         
-        int numeroRandom = (int) (Math.random() * 5 + 1);
+        int numeroRandom = (int) (Math.random() * 99 + 1);
+        
+    }
+    
+    public void tresCaras(){
+        
+        int numeroRandom = (int) (Math.random() * 2 + 1);
         
     }
 
