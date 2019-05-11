@@ -16,6 +16,10 @@ public class Jugador {
     
     static Scanner miScaner = new Scanner(System.in);
 
+    Jugador() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public Arma getArma() {
         return arma;
     }
