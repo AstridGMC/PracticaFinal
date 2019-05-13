@@ -2,16 +2,19 @@
 package proyectofinal.fronend.tableros;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 import proyectofinal.backend.Escenario.Agua;
 import proyectofinal.backend.Escenario.Avion;
+import proyectofinal.backend.Escenario.Enemigo;
 import proyectofinal.backend.Escenario.Movimiento;
 import proyectofinal.backend.Escenario.Tanque;
 import proyectofinal.backend.Escenario.TerrenoNormal;
@@ -24,7 +27,11 @@ public class EscenarioPlaya   {
     Agua miAgua = new Agua();
     Avion miAvion = new Avion();
     Tanque miTanque = new Tanque();
-     Movimiento movimiento = new Movimiento();
+    Enemigo enemigo1 = new Enemigo();
+    Enemigo enemigo2 = new Enemigo();
+    Enemigo enemigo3 = new Enemigo();
+    
+    Movimiento movimiento = new Movimiento();
     TerrenoNormal miTerrenoNormal = new TerrenoNormal();
     protected int[][] tipoTerreno= new int[8][9];
     public static JLabel[][] casillas;
@@ -52,11 +59,14 @@ public class EscenarioPlaya   {
                 int terrenoRandom = (int) (Math.random() * 2 + 1);
                 //agrega a los enemigos al tablero
                  if(y==0 && x%2==1 && Modalidad.getElegido()==1){
+                   
                     tipo =terrenoRandom;
-                    terrenoClase.setBackground(Color.RED);
+                    terrenoClase.setIcon(new ImageIcon(enemigo1.getImagen().getImage().getScaledInstance(80, 60, Image.SCALE_SMOOTH)));
+                    terrenoClase.setBackground(Color.white);
                     terrenoClase.setBorder(border);
                     terrenoClase.setOpaque(true);
                     casillas[y][x]=terrenoClase;
+                    tipoTerreno[y][x]=4;
                 }
                  else if(terrenoRandom == 1){
                     tipo =terrenoRandom;

@@ -9,15 +9,13 @@ import javax.swing.JOptionPane;
 import proyectofinal.backend.Escenario.Avion;
 import proyectofinal.backend.Escenario.Jugador;
 import proyectofinal.backend.Escenario.Tanque;
-import proyectofinal.fronend.menus.PedirNombre;
 
 /**
  *
  * @author astridmc
  */
 public class CreaVehiculo extends javax.swing.JDialog {
-    PedirNombre nombre = new PedirNombre();
-    protected Jugador actual = nombre.nuevoJugador;
+    
     protected String nombreVehiculo;
     protected int i=0;
     /**
@@ -207,6 +205,7 @@ public class CreaVehiculo extends javax.swing.JDialog {
     }//GEN-LAST:event_btnTanqueMouseClicked
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        Jugador actual = Jugador.jugadores.get(0);
         if(txtNombreVehiculo.getText().isEmpty()){
             JOptionPane.showMessageDialog(null,"Nombre Requerido");
         }else if(i<3){

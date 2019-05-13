@@ -5,6 +5,12 @@
  */
 package proyectofinal.fronend.tableros;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import proyectofinal.backend.Escenario.Vehiculo;
+
 /**
  *
  * @author astridmc
@@ -82,12 +88,33 @@ int numeroSorteado = (int) (Math.random() * 5 + 1);
         }
     }
     
-    public void tresCaras(){
-         for(int i =0 ; i<numeroSorteado;i++){
-            int numeroRandom = (int) (Math.random() *2 + 1);
-            lblNumero.setText(Integer.toString(numeroRandom));
-        }
+    public void tresCaras(JPanel panel){
+        this.setBounds(panel.getX(), panel.getY(), panel.getWidth(), panel.getHeight());
+            panel.add(this);
+        Movimiento dado = new Movimiento();
+        dado.start();
     }
+    
+    class Movimiento extends Thread{
+    
+    public Movimiento() {
+    }
+    
+    @Override
+    public void run(){   
+       for(int i =0 ; i<numeroSorteado;i++){
+            
+            try {
+               int numeroRandom = (int) (Math.random() *2 + 1);
+                lblNumero.setText(Integer.toString(numeroRandom)); 
+        
+                Thread.sleep(500);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Movimiento.class.getName()).log(Level.SEVERE, null, ex);
+            }  
+    }
+   }
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JInternalFrame jInternalFrame1;

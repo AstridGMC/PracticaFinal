@@ -5,16 +5,37 @@
  */
 package proyectofinal.backend.Escenario;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 
 public class Enemigo {
     protected static int ATAQUE = 10;
     protected static int DEFENSA =5;
     protected static int VIDA = 25;
     protected static int punteria = (int) (Math.random() * 15 + 1);
+    JLabel nuevos = new JLabel();
+    ImageIcon imagen = new ImageIcon("enemigo.png");
+    
+    
 
     
-    public void agregarImagen(){
+    public void agregarImagen(JLabel[][] casillas, JLabel terreno, int x, int y){
+        //nuevos.setBounds(terreno.getX(), terreno.getY(), 100, 100);
         
+        casillas[x][y].setIcon(new ImageIcon(imagen.getImage().getScaledInstance(80, 60, Image.SCALE_SMOOTH)));
+      
+        System.out.println(casillas[x][y]);
+    }
+
+    
+    public JLabel getNuevos() {
+        return nuevos;
+    }
+
+    public ImageIcon getImagen() {
+        return imagen;
     }
     
 
@@ -34,7 +55,7 @@ public class Enemigo {
         Enemigo.DEFENSA = DEFENSA;
     }
 
-    public int getVIDA() {
+    public static int getVIDA() {
         return VIDA;
     }
 
@@ -53,13 +74,10 @@ public class Enemigo {
 
         
     public static boolean disparar( ){
-        Arma miArma= new Arma();
         int disparo = (int) (Math.random() * 100 + 1);
             
         if(disparo<=60){
             System.out.println("ha acertado\n");
-            miArma.municiones--;
-            
             return true;
           
         }else {

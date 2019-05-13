@@ -9,9 +9,10 @@ public class Jugador {
     protected  String nombre;
     protected  int experiencia =0;
     protected  int necesario = 50;    //experiencia necesaria para subir de nivel   
-    protected ArrayList <Jugador> jugadores = new ArrayList();
+    public static ArrayList <Jugador> jugadores = new ArrayList();
     protected Vehiculo[] Vehiculos =new Vehiculo[3];
-    public Arma arma;
+    protected ArrayList <Arma> armasJugador = new ArrayList();
+    Cañon cañon = new Cañon();
     protected String ID;
     
     
@@ -19,17 +20,35 @@ public class Jugador {
 
 
     public Jugador() {
+        armasJugador.add(cañon);
+    }
+
+    public ArrayList<Jugador> getJugadores() {
+        return jugadores;
+    }
+
+    public void setJugadores(ArrayList<Jugador> jugadores) {
+        this.jugadores = jugadores;
+    }
+
+    public ArrayList<Arma> getArmasJugador() {
+        return armasJugador;
+    }
+
+    public void setArmasJugador(ArrayList<Arma> armasJugador) {
+        this.armasJugador = armasJugador;
+    }
+
+    
+    public ArrayList<Arma> getArmas() {
         
+        return armasJugador;
     }
 
-
-    public Arma getArma() {
-        return arma;
+    public void setArmas(ArrayList<Arma> armasJugador) {
+        this.armasJugador = armasJugador;
     }
-
-    public void setArma(Arma arma) {
-        this.arma = arma;
-    }
+    
 
     public Jugador(String nombre, String ID) {
         this.nombre = nombre;
@@ -82,7 +101,7 @@ public class Jugador {
         nombre= miScaner.nextLine();
     }
     
-    public void agregarJugador(Jugador jugador){
+    public static void agregarJugador(Jugador jugador){
         jugadores.add(jugador);
     }
 

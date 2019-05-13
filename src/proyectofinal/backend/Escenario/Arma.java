@@ -1,5 +1,7 @@
 package proyectofinal.backend.Escenario;
 
+import java.util.ArrayList;
+
 
 public class Arma {
     
@@ -9,16 +11,30 @@ public class Arma {
     protected  int velocidadDisparoA;
     protected  int ataqueA;
     protected  int precioA;
+     protected ArrayList <Arma> armas = new ArrayList();
 
     public Arma(String nombreArma, int punteriaArma, int VelocidadDisparoA, int AtaqueA) {
-        
+     
         this.nombreArma=nombreArma;
         this.punteriaArma=punteriaArma;
         this.velocidadDisparoA= VelocidadDisparoA;
         this.ataqueA=AtaqueA;
     }
     //constructor
+    public Arma(String nombre) {
+    }
+
     public Arma() {
+    }
+    
+    
+
+    public ArrayList<Arma> getArmas() {
+        return armas;
+    }
+
+    public void setArmas(ArrayList<Arma> armas) {
+        this.armas = armas;
     }
     
     
@@ -26,8 +42,8 @@ public class Arma {
         return municiones;
     }
 
-    public void setMuniciones(int municiones) {
-        this.municiones = municiones;
+    public void setMuniciones(int x) {
+        this.municiones = municiones + x;
     }
 
 
@@ -44,11 +60,11 @@ public class Arma {
     }
 
     public void setPunteriaArma(int punteriaArma) {
-        this.punteriaArma = punteriaArma;
+        this.punteriaArma = 50;
     }
 
     public int getVelocidadDisparoA() {
-        return velocidadDisparoA;
+        return 20;
     }
 
     public void setVelocidadDisparoA(int velocidadDisparoA) {
@@ -56,7 +72,7 @@ public class Arma {
     }
 
     public int getAtaqueA() {
-        return ataqueA;
+        return 30;
     }
 
     public void setAtaqueA(int ataqueA) {
@@ -64,15 +80,21 @@ public class Arma {
     }
 
     public int getPrecioA() {
-        return precioA;
+        return 200;
     }
 
     public void setPrecioA(int precio) {
         this.precioA = precio;
     }
     
-    public int agregarMuniciones(){
+    public int agregarMuniciones(int compra){
+        municiones = municiones +compra;
         return municiones;
+    }
+    
+    public void agregarArmas(Arma armaNueva){
+        
+        armas.add(armaNueva);
     }
     
     public int restarDisparos(){

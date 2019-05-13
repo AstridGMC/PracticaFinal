@@ -5,9 +5,8 @@
  */
 package proyectofinal.fronend.menus;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
+import proyectofinal.backend.Escenario.Arma;
 
 /**
  *
@@ -136,7 +135,10 @@ public class CreaArmas extends javax.swing.JDialog {
          if(txtNombreArma.getText().isEmpty()){
             JOptionPane.showMessageDialog(null,"Nombre Requerido");
         }else{
+            
             nombreArma = txtNombreArma.getText();
+            Arma nuevaArma = new Arma(nombreArma);
+            nuevaArma.agregarArmas(nuevaArma);
             lblGuardado.setVisible(true);
             txtNombreArma.setText("");
         }

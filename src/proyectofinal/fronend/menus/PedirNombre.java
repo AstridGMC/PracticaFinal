@@ -16,31 +16,18 @@ public class PedirNombre extends javax.swing.JDialog {
 
     protected String nombre;
     protected int identificador=0;
-    public Jugador nuevoJugador = new Jugador();
+    
     /**
      * Creates new form pedirNombre
      * @param parent
      */
+    
     public PedirNombre(java.awt.Frame parent) {
         super(parent, true);
         initComponents();
         setLocationRelativeTo(null);
         lblGuardado.setVisible(false);
     }
-
-    public Jugador getNuevoJugador() {
-        return nuevoJugador;
-    }
-
-    public void setNuevoJugador(Jugador nuevoJugador) {
-        this.nuevoJugador = nuevoJugador;
-    }
-
-    public PedirNombre() {
-    }
-    
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -144,7 +131,12 @@ public class PedirNombre extends javax.swing.JDialog {
             identificador= (identificador+1);
             nombre = txtGuardaNombre.getText();
             lblGuardado.setVisible(true);
-            nuevoJugador.agregarJugador(nuevoJugador);
+            Jugador nuevoJugador = new Jugador();
+            nuevoJugador.setNombre(nombre);
+            Jugador.agregarJugador(nuevoJugador);
+            System.out.println(Jugador.jugadores.get(0).getNombre());
+            txtGuardaNombre.setText("");
+            this.setVisible(false);
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 

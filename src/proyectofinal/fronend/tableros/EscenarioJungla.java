@@ -3,21 +3,25 @@ package proyectofinal.fronend.tableros;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 import proyectofinal.backend.Escenario.Agua;
 import proyectofinal.backend.Escenario.Avion;
+import proyectofinal.backend.Escenario.Enemigo;
 import proyectofinal.backend.Escenario.Montaña;
 import proyectofinal.backend.Escenario.Movimiento;
 import proyectofinal.backend.Escenario.Tanque;
 import proyectofinal.backend.Escenario.TerrenoNormal;
 import proyectofinal.fronend.VentanaPrincipal;
+import proyectofinal.fronend.menus.Modalidad;
 
 public class EscenarioJungla {
     Tanque miTanque = new Tanque();
@@ -26,6 +30,9 @@ public class EscenarioJungla {
     Movimiento movimiento = new Movimiento();
     Avion miAvion = new Avion();
     TerrenoNormal miTerrenoNormal = new TerrenoNormal();
+     Enemigo enemigo1 = new Enemigo();
+    Enemigo enemigo2 = new Enemigo();
+    Enemigo enemigo3 = new Enemigo();
     public static JLabel[][] casillas;
     protected int[][] tipoTerreno= new int[6][4];
     static JLabel terrenoClase;
@@ -50,6 +57,25 @@ public class EscenarioJungla {
                  listenerCasilla(terrenoClase, y, x);
                 altoCasilla = terrenoClase.getHeight();
                 anchoCasilla = terrenoClase.getWidth();
+                 if(y==0 && x%2==1 && Modalidad.getElegido()==1){
+                   if(x==1){
+                        tipo =terrenoRandom;
+                        terrenoClase.setIcon(new ImageIcon(enemigo1.getImagen().getImage().getScaledInstance(80, 60, Image.SCALE_SMOOTH)));
+                        terrenoClase.setBackground(Color.white);
+                        terrenoClase.setBorder(border);
+                        terrenoClase.setOpaque(true);
+                        casillas[y][x]=terrenoClase;
+                        tipoTerreno[y][x]=4;
+                   } else if (x==3){
+                        tipo =terrenoRandom;
+                        terrenoClase.setIcon(new ImageIcon(enemigo1.getImagen().getImage().getScaledInstance(80, 60, Image.SCALE_SMOOTH)));
+                        terrenoClase.setBackground(Color.white);
+                        terrenoClase.setBorder(border);
+                        terrenoClase.setOpaque(true);
+                        casillas[y][x]=terrenoClase;
+                        tipoTerreno[y][x]=4;
+                   }
+                 }
                 if(terrenoRandom == 1){
                     terrenoClase.setBackground(miAgua.getTerreno());
                     terrenoClase.setBorder(border);

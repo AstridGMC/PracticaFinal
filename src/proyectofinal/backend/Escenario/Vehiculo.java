@@ -1,6 +1,7 @@
   
 package proyectofinal.backend.Escenario;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import proyectofinal.backend.Escenario.Jugador;
 
 public class Vehiculo {
@@ -19,18 +20,21 @@ public class Vehiculo {
         
     }
     
-    public void disparar( ){
+    public void disparar(Arma miArma ){
       //  Arma miArma= new Arma();
         int disparo = (int) (Math.random() * 100 + 1);
-        //if (miArma.municiones>0){
+        if (miArma.municiones>0){
             
-            //if(disparo<=(miArma.getPunteriaArma()+punteria)){
-            System.out.println("ha acertado");
-            //Enemigo.setVIDA(Enemigo.VIDA- ataque);
-            //miArma.municiones--;
-        //}else if(disparo>60){
-            System.out.println("ha fallado");}
-
+            if(disparo<=(miArma.getPunteriaArma()+punteria)){
+           JOptionPane.showMessageDialog(null,"ha acertado");
+            Enemigo.setVIDA(Enemigo.VIDA- ataque);
+            miArma.municiones--;
+        }else if(disparo>60){
+            JOptionPane.showMessageDialog(null,"ha fallado");}
+        }else{
+            
+        }
+    }
     public ImageIcon getImagen() {
         return imagen;
     }
