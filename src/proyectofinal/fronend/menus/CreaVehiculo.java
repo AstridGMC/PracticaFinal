@@ -5,10 +5,13 @@
  */
 package proyectofinal.fronend.menus;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import proyectofinal.backend.Escenario.AlmacenVehiculos;
 import proyectofinal.backend.Escenario.Avion;
 import proyectofinal.backend.Escenario.Jugador;
 import proyectofinal.backend.Escenario.Tanque;
+import proyectofinal.backend.Escenario.Vehiculo;
 
 /**
  *
@@ -203,8 +206,9 @@ public class CreaVehiculo extends javax.swing.JDialog {
             txtEspecificaciones.setText("vehiculo pesado con con mucha defensa, es capaz de disparar armas con mucha potencia \n posee defensa alta pero tiene poca punteria ");
         }   
     }//GEN-LAST:event_btnTanqueMouseClicked
-
+Vehiculo vehiculo = new Vehiculo();
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        
         Jugador actual = Jugador.jugadores.get(0);
         if(txtNombreVehiculo.getText().isEmpty()){
             JOptionPane.showMessageDialog(null,"Nombre Requerido");
@@ -213,17 +217,24 @@ public class CreaVehiculo extends javax.swing.JDialog {
                 nombreVehiculo = txtNombreVehiculo.getText();
                 txtGuardado.setVisible(true);
                 Avion avion = new Avion (nombreVehiculo);
-                actual.setVehiculos(i, avion);
+                avion.setNombre(nombreVehiculo);
+                vehiculo = avion;
+                actual.getVehiculos()[i]= vehiculo;
                 txtNombreVehiculo.setText("");
                 i++;
             }else if(btnTanque.isSelected()){
                 nombreVehiculo = txtNombreVehiculo.getText();
                 txtGuardado.setVisible(true);
                 Tanque tanque = new Tanque (nombreVehiculo);
-                actual.setVehiculos(i, tanque);
+                tanque.setNombre(nombreVehiculo);
+                vehiculo = tanque;
+                actual.getVehiculos()[i]= vehiculo;
                 txtNombreVehiculo.setText("");
                 i++;
             }
+            
+            Vehiculo.vehiculos.add(vehiculo);
+            AlmacenVehiculos.alamacenarVehiculos(vehiculo,Vehiculo.vehiculos);
         }else{
             JOptionPane.showMessageDialog(null,"su espacio para vehiculos esta lleno");
         }

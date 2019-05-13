@@ -97,7 +97,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         lblJugadorEnTurno = new javax.swing.JLabel();
         btnCambiarVehiculo = new javax.swing.JButton();
         btnDisparar = new javax.swing.JButton();
-        combVehiculo = new javax.swing.JComboBox<>();
         panelDado = new javax.swing.JPanel();
         btnInicio = new javax.swing.JButton();
         btnDado = new javax.swing.JButton();
@@ -170,8 +169,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        combVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         javax.swing.GroupLayout panelInfoLayout = new javax.swing.GroupLayout(panelInfo);
         panelInfo.setLayout(panelInfoLayout);
         panelInfoLayout.setHorizontalGroup(
@@ -196,8 +193,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                                     .addComponent(lblJugadorEnTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(btnCambiarVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnDisparar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(combVehiculo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnDisparar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         panelInfoLayout.setVerticalGroup(
@@ -217,9 +213,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(lblJugadorEnTurno)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCambiarVehiculo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(combVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addComponent(btnDisparar)
                 .addContainerGap())
         );
@@ -355,7 +349,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnSalida.setFont(new java.awt.Font("Dyuthi", 0, 18)); // NOI18N
         btnSalida.setForeground(new java.awt.Color(238, 207, 102));
-        btnSalida.setText("SALIR DEL JUEGO");
+        btnSalida.setText("RENDIRME");
         btnSalida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalidaActionPerformed(evt);
@@ -508,40 +502,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDispararActionPerformed
 
     private void btnDadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDadoActionPerformed
-        dado.tresCaras( panelDado);
+        panelDado.add(dado);
+        dado.tresCaras();
+        System.out.println("lolo");
     }//GEN-LAST:event_btnDadoActionPerformed
-   /* public void combate(){
-        System.out.println("INICIA LA PARTIDA:");
-        Vehiculo miVehiculo = new Vehiculo();
-        do{
-            disparado=0;
-           if(disparado ==1){
-                    miVehiculo.disparar();
-                    System.out.println("eee");
-                    
-           }else{
-            if(Enemigo.disparar() == true){
-                JOptionPane.showMessageDialog(null,"Enemigo ha acertado");
-                miVehiculo.setHP(miVehiculo.getHP()-1);
-            }else{
-                JOptionPane.showMessageDialog(null,"nenemigo Ha Fallado");
-            }
-           }
-            
-        }while (miVehiculo.getHP()!=0 || Enemigo.getVIDA()!=0);
-        
-        if(Enemigo.getVIDA()==0){
-            JOptionPane.showMessageDialog(null,"has ganado la batalla FELICIDADES");
-            JOptionPane.showMessageDialog(null,"se le han acreditado 200 monedas y 50 puntos de experiencia");
-            Jugador.jugadores.get(0).setMyOro(Jugador.jugadores.get(0).getMyOro()+ 200);
-            Jugador.jugadores.get(0).setExperiencia(Jugador.jugadores.get(0).getExperiencia()+50);
-            componentes();
-        } else {
-            JOptionPane.showMessageDialog(null,"ha sido derrotado");
-            componentes();
-        }
-    }*/
-    
+   
     public void diseño(){
         ocultarEtiquetas();
         setTitle("JUEGO RPG");
@@ -677,7 +642,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnSalida;
     private javax.swing.JMenu btnTienda;
     private javax.swing.JMenuItem btnVerJugadores;
-    private javax.swing.JComboBox<String> combVehiculo;
     private javax.swing.JPanel imagenPanel;
     private javax.swing.JMenuItem irTiendabtn;
     private javax.swing.JButton jButton1;

@@ -81,7 +81,15 @@ public class Tanque extends Vehiculo{
         this.PP = PP;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    
 
     @Override
     public  ImageIcon getImagen() {

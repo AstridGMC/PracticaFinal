@@ -7,7 +7,7 @@ import proyectofinal.backend.Escenario.Jugador;
 
 public class Vehiculo {
     
-    
+    protected String nombre;
     protected int ataque;
     protected int defensa;
     protected int punteria;
@@ -43,6 +43,14 @@ public class Vehiculo {
 
     public void setImagen(ImageIcon imagen) {
         this.imagen = imagen;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     

@@ -2,7 +2,9 @@
 package proyectofinal.fronend;
 
 import java.awt.Dimension;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import proyectofinal.backend.Escenario.Jugador;
 import proyectofinal.fronend.menus.CompraArmas;
 import proyectofinal.fronend.menus.CompraMuniciones;
 
@@ -46,7 +48,7 @@ public class Tienda extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         listaJugador = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        oroDisponible = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         producto = new javax.swing.JComboBox<>();
         panelOpcion = new javax.swing.JPanel();
@@ -69,8 +71,8 @@ public class Tienda extends javax.swing.JDialog {
 
         jLabel2.setText("escoja su nombre Jugador");
 
-        jLabel3.setFont(new java.awt.Font("Dyuthi", 2, 24)); // NOI18N
-        jLabel3.setText("Su Oro disponible es:");
+        oroDisponible.setFont(new java.awt.Font("Dyuthi", 2, 24)); // NOI18N
+        oroDisponible.setText("Su Oro disponible es:");
 
         jLabel4.setFont(new java.awt.Font("Dyuthi", 2, 24)); // NOI18N
         jLabel4.setText("Que producto deseas adquirir?");
@@ -109,7 +111,7 @@ public class Tienda extends javax.swing.JDialog {
                         .addComponent(jLabel2)
                         .addGap(138, 138, 138))
                     .addGroup(panelInformacionLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(oroDisponible)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 348, Short.MAX_VALUE)
                         .addComponent(listaJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(39, 39, 39))
@@ -131,7 +133,7 @@ public class Tienda extends javax.swing.JDialog {
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
+                        .addComponent(oroDisponible)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
@@ -179,21 +181,31 @@ public class Tienda extends javax.swing.JDialog {
     }//GEN-LAST:event_productoActionPerformed
 
     private void agregarCompraMuniciones(){
-        panelOpcion.setVisible(true);
-        panelOpcion.add(municiones);
-        municiones.setSize(800, 300);
-        panelOpcion.setPreferredSize(new Dimension(800, 300));
-        municiones.setVisible(true);
-        panelOpcion.revalidate();
+        if(Jugador.jugadores.isEmpty()){
+            JOptionPane.showMessageDialog(null,"Nombre Requerido");
+        }else{
+            oroDisponible.setText("Tu Oro disponible es:"+ Jugador.jugadores.get(0).getMyOro());
+            panelOpcion.setVisible(true);
+            panelOpcion.add(municiones);
+            municiones.setSize(800, 300);
+            panelOpcion.setPreferredSize(new Dimension(800, 300));
+            municiones.setVisible(true);
+            panelOpcion.revalidate();}
     }
     
     private void agregarComprarArma(){
-        panelOpcion.setVisible(true);
-        panelOpcion.add(armas);
-        armas.setSize(700, 400);
-        panelOpcion.setPreferredSize(new Dimension(700, 300));
-        armas.setVisible(true);
-        panelOpcion.revalidate();
+        if(Jugador.jugadores.isEmpty()){
+            JOptionPane.showMessageDialog(null,"Nombre Requerido");
+        }else{
+             oroDisponible.setText("Tu Oro disponible es:"+ Jugador.jugadores.get(0).getMyOro());
+            panelOpcion.setVisible(true);
+            panelOpcion.add(armas);
+            armas.setSize(700, 400);
+            panelOpcion.setPreferredSize(new Dimension(700, 300));
+            armas.setVisible(true);
+            panelOpcion.revalidate();
+            
+        }
     }
     
     private void diseño(){
@@ -205,10 +217,10 @@ public class Tienda extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JComboBox<String> listaJugador;
+    private javax.swing.JLabel oroDisponible;
     private javax.swing.JPanel panelInformacion;
     private javax.swing.JPanel panelOpcion;
     private javax.swing.JComboBox<String> producto;

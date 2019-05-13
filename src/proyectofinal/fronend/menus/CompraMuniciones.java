@@ -1,15 +1,20 @@
 
 package proyectofinal.fronend.menus;
 
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import proyectofinal.backend.Escenario.Ametralladora;
 import proyectofinal.backend.Escenario.Jugador;
 import proyectofinal.backend.Escenario.Cañon;
+import proyectofinal.backend.Escenario.Misil;
 
 public class CompraMuniciones extends javax.swing.JPanel {
 
     protected int MUNICIONESMAYOR = 100;
     protected int MUNICIONESMENOR = 50;
-    
+    Ametralladora metrayeta = new Ametralladora();
+    Misil miMisil = new Misil();
+    Cañon miCañon = new Cañon();
     
     /**
      * Creates new form Municiones
@@ -201,9 +206,13 @@ public class CompraMuniciones extends javax.swing.JPanel {
         if(btnMetralleta.isSelected()){
             if(rbtnMayor.isSelected()){
                 System.out.println("metralleta mayor");
+                Jugador.jugadores.get(0).setMyOro(Jugador.jugadores.get(0).getMyOro()-MUNICIONESMAYOR);
+                metrayeta.setMuniciones(metrayeta.getMuniciones()+MUNICIONESMAYOR);
                 this.setVisible(false);
             }else if (rbtnMenor.isSelected()){
                 System.out.println("metralletaMenor");
+                Jugador.jugadores.get(0).setMyOro(Jugador.jugadores.get(0).getMyOro()-MUNICIONESMENOR);
+                metrayeta.setMuniciones(metrayeta.getMuniciones()+MUNICIONESMENOR);
                 this.setVisible(false);
             }else{
                 JOptionPane.showMessageDialog(null,"es necesario rellenar los campos");
@@ -211,9 +220,13 @@ public class CompraMuniciones extends javax.swing.JPanel {
         } else if(btnMisil.isSelected()){
             if(rbtnMayor.isSelected()){
                 System.out.println("Misil mayor");
+                Jugador.jugadores.get(0).setMyOro(Jugador.jugadores.get(0).getMyOro()-MUNICIONESMAYOR);
+                miMisil.setMuniciones(MUNICIONESMAYOR+ miMisil.getMuniciones());
                 this.setVisible(false);
             }else if (rbtnMenor.isSelected()){
                 System.out.println("Misil menor");
+                Jugador.jugadores.get(0).setMyOro(Jugador.jugadores.get(0).getMyOro()-MUNICIONESMENOR);
+                miMisil.setMuniciones(MUNICIONESMAYOR+ miMisil.getMuniciones());
                 this.setVisible(false);
             }else{
                 JOptionPane.showMessageDialog(null,"es necesario rellenar los campos");
@@ -221,9 +234,12 @@ public class CompraMuniciones extends javax.swing.JPanel {
         } else if(btnCañon.isSelected()){
             if(rbtnMayor.isSelected()){
                 System.out.println("Cañon mayor");
-                
+                Jugador.jugadores.get(0).setMyOro(Jugador.jugadores.get(0).getMyOro()-MUNICIONESMAYOR);
+                miCañon.setMuniciones(MUNICIONESMAYOR+miCañon.getMuniciones());
                 this.setVisible(false);
             }else if (rbtnMenor.isSelected()){
+                Jugador.jugadores.get(0).setMyOro(Jugador.jugadores.get(0).getMyOro()-MUNICIONESMENOR);
+                miCañon.setMuniciones(MUNICIONESMENOR+miCañon.getMuniciones());
                 System.out.println("Cañon menor");
                 this.setVisible(false);
             }else{
@@ -232,6 +248,7 @@ public class CompraMuniciones extends javax.swing.JPanel {
         } else if(rBtnCreadas.isSelected()){
              if(rbtnMayor.isSelected()){
                 System.out.println("Creadas mayor");
+                Jugador.jugadores.get(0).setMyOro(Jugador.jugadores.get(0).getMyOro()-MUNICIONESMAYOR);
                 this.setVisible(false);
             }else if (rbtnMenor.isSelected()){
                 System.out.println("Creadas menor");

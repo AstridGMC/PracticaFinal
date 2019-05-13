@@ -19,7 +19,7 @@ public class AlmacenVehiculos {
     static ObjectOutputStream escritor = null;
     static ObjectInputStream lector = null;
     
-    public static  void alamacenarArmas(Vehiculo vehiculo, ArrayList <Vehiculo> vehiculos){
+    public static  void alamacenarVehiculos(Vehiculo vehiculo, ArrayList <Vehiculo> vehiculos){
         try {
             armasArchivo.createNewFile();
             salida = new FileOutputStream(vehiculosArchivo);
@@ -42,7 +42,7 @@ public class AlmacenVehiculos {
         }
     }
    // lectura del archivo
-    public void leerArmas(Vehiculo vehiculo, ArrayList <Vehiculo> vehiculos){
+    public void leerVehiculos(Vehiculo vehiculo, ArrayList <Vehiculo> vehiculos){
         try {
             entrada = new FileInputStream(armasArchivo);
             lector = new ObjectInputStream(entrada);
