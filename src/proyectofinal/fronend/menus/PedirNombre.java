@@ -15,13 +15,28 @@ import proyectofinal.backend.Escenario.Jugador;
 public class PedirNombre extends javax.swing.JDialog {
 
     protected String nombre;
+    protected int identificador=0;
+    public Jugador nuevoJugador = new Jugador();
     /**
      * Creates new form pedirNombre
+     * @param parent
      */
     public PedirNombre(java.awt.Frame parent) {
         super(parent, true);
         initComponents();
         setLocationRelativeTo(null);
+        lblGuardado.setVisible(false);
+    }
+
+    public Jugador getNuevoJugador() {
+        return nuevoJugador;
+    }
+
+    public void setNuevoJugador(Jugador nuevoJugador) {
+        this.nuevoJugador = nuevoJugador;
+    }
+
+    public PedirNombre() {
     }
     
     
@@ -40,15 +55,21 @@ public class PedirNombre extends javax.swing.JDialog {
         lblNombre = new javax.swing.JLabel();
         txtGuardaNombre = new javax.swing.JTextField();
         btnGuardar = new javax.swing.JButton();
+        lblGuardado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(129, 239, 237));
 
         lblNombre.setFont(new java.awt.Font("Dyuthi", 0, 36)); // NOI18N
-        lblNombre.setText("CUAL ES SU NOMBRE ?");
+        lblNombre.setText("ESCRIBA SU NOMBRE ");
 
         txtGuardaNombre.setFont(new java.awt.Font("Dyuthi", 0, 36)); // NOI18N
+        txtGuardaNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtGuardaNombreMouseClicked(evt);
+            }
+        });
         txtGuardaNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtGuardaNombreActionPerformed(evt);
@@ -62,33 +83,40 @@ public class PedirNombre extends javax.swing.JDialog {
             }
         });
 
+        lblGuardado.setFont(new java.awt.Font("Dyuthi", 0, 24)); // NOI18N
+        lblGuardado.setText("Su Perfil se ha creado exitosamente su ID es:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 50, Short.MAX_VALUE)
-                .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtGuardaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(103, 103, 103))
+                .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(107, 107, 107))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(156, 156, 156)
+                .addGap(36, 36, 36)
+                .addComponent(lblGuardado)
+                .addContainerGap(132, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(txtGuardaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(36, 36, 36))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(27, 27, 27)
                 .addComponent(lblNombre)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtGuardaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(txtGuardaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addComponent(lblGuardado)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -99,30 +127,36 @@ public class PedirNombre extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtGuardaNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGuardaNombreActionPerformed
-        nombre = txtGuardaNombre.getText();
+        
     }//GEN-LAST:event_txtGuardaNombreActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         if(txtGuardaNombre.getText()==null){
             JOptionPane.showMessageDialog(null,"Nombre Requerido");
         }else{
-            Jugador nuevo = new Jugador(nombre);
-            nuevo.agregarJugador(nuevo);
-            this.setVisible(false);
+            identificador= (identificador+1);
+            nombre = txtGuardaNombre.getText();
+            lblGuardado.setVisible(true);
+            nuevoJugador.agregarJugador(nuevoJugador);
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void txtGuardaNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtGuardaNombreMouseClicked
+        lblGuardado.setVisible(false);
+    }//GEN-LAST:event_txtGuardaNombreMouseClicked
 
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblGuardado;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JTextField txtGuardaNombre;
     // End of variables declaration//GEN-END:variables

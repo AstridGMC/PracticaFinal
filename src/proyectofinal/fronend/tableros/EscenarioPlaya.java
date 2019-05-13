@@ -17,7 +17,7 @@ import proyectofinal.backend.Escenario.Tanque;
 import proyectofinal.backend.Escenario.TerrenoNormal;
 import proyectofinal.backend.Escenario.Vehiculo;
 import proyectofinal.fronend.VentanaPrincipal;
-import proyectofinal.fronend.menus.NuevoJuego;
+import proyectofinal.fronend.menus.Modalidad;
 
 
 public class EscenarioPlaya   {
@@ -51,7 +51,7 @@ public class EscenarioPlaya   {
                 listenerCasilla(terrenoClase, y,x);
                 int terrenoRandom = (int) (Math.random() * 2 + 1);
                 //agrega a los enemigos al tablero
-                 if(y==0 && x%2==1 && NuevoJuego.getElegido()==1){
+                 if(y==0 && x%2==1 && Modalidad.getElegido()==1){
                     tipo =terrenoRandom;
                     terrenoClase.setBackground(Color.RED);
                     terrenoClase.setBorder(border);
@@ -145,8 +145,8 @@ public class EscenarioPlaya   {
             @Override
             public void keyPressed(KeyEvent e){
                 
-                 if (e.getKeyCode() == KeyEvent.VK_UP) {
-                        System.out.println(e.getKeyCode());
+                if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    System.out.println(e.getKeyCode());
                     if(VentanaPrincipal.vehiculoId==1){
                         if(tipoTerreno[fila-1][columna]!=7){
                             casillas[fila][columna].setIcon(null);
@@ -160,20 +160,23 @@ public class EscenarioPlaya   {
                         }else{fila = fila;}
                     }
                 }
+                 
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-                    System.out.println("IZQUIERDA");
-                    
+                    System.out.println("IZQUIERDA"); 
                     if(VentanaPrincipal.vehiculoId==1){
-                        if(tipoTerreno[fila][columna-1]!=7){
-                             casillas[fila][columna].setIcon(null);
-                            movimiento.movimientoIzquierdo(miAvion,casillas, casillas[fila][columna], fila, columna);
-                            columna = columna-1;
-                        }else{fila = fila;}
+                        
+                            if(tipoTerreno[fila][columna-1]!=7){
+                                 casillas[fila][columna].setIcon(null);
+                                movimiento.movimientoIzquierdo(miAvion,casillas, casillas[fila][columna], fila, columna);
+                                columna = columna-1;
+                            }else{fila = fila;}
                     }else if(VentanaPrincipal.vehiculoId==2){
-                        if(tipoTerreno[fila][columna-1]!=5){
-                        casillas[fila][columna].setIcon(null);
-                        movimiento.movimientoIzquierdo(miTanque,casillas, casillas[fila][columna], fila, columna);
-                        columna = columna-1;}else{fila = fila;}
+                       
+                            if(tipoTerreno[fila][columna-1]!=5){
+                                casillas[fila][columna].setIcon(null);
+                                movimiento.movimientoIzquierdo(miTanque,casillas, casillas[fila][columna], fila, columna);
+                                columna = columna-1;
+                            }else{fila = fila;}
                     }
                     
                 }
@@ -181,23 +184,43 @@ public class EscenarioPlaya   {
                     System.out.println("DERECHA");
                     
                     if(VentanaPrincipal.vehiculoId==1){
-                        if(tipoTerreno[fila][columna+1]!=7){
-                            casillas[fila][columna].setIcon(null);
-                        movimiento.movimientoDerecha(miAvion,casillas, casillas[fila][columna], fila, columna);
-                        columna = columna+1;
-                        }else{fila = fila;}
+                        
+                        if(tipoTerreno[fila][columna+1]==5 ||tipoTerreno[fila][columna+1]==6 ||tipoTerreno[fila][columna+1]==7 ){
+                            if(tipoTerreno[fila][columna+1]!=7){
+                                casillas[fila][columna].setIcon(null);
+                                movimiento.movimientoDerecha(miAvion,casillas, casillas[fila][columna], fila, columna);
+                                columna = columna+1;
+                            }else{}}
                     }else if(VentanaPrincipal.vehiculoId==2){
-                        if(tipoTerreno[fila][columna+1]!=5){
-                            casillas[fila][columna].setIcon(null);
-                            movimiento.movimientoDerecha(miTanque,casillas, casillas[fila][columna], fila, columna);
-                            columna = columna+1;
-                        }else{fila = fila;}
+                        if(tipoTerreno[fila][columna+1]==5 ||tipoTerreno[fila][columna+1]==6 ||tipoTerreno[fila][columna+1]==7 ){
+                            if(tipoTerreno[fila][columna+1]!=5){
+                                casillas[fila][columna].setIcon(null);
+                                movimiento.movimientoDerecha(miTanque,casillas, casillas[fila][columna], fila, columna);
+                                columna = columna+1;
+                            }else{}}
                     }
                     
                 }
                  if(e.getKeyCode() == KeyEvent.VK_DOWN){
-                     
-                 }
+                    if(VentanaPrincipal.vehiculoId==1){
+                      if(tipoTerreno[fila+1][columna]==5 ||tipoTerreno[fila+1][columna]==6 ||tipoTerreno[fila+1][columna]==7 )
+                        if(tipoTerreno[fila+1][columna]!=7){
+                              casillas[fila][columna].setIcon(null);
+                              movimiento.movimientoAbajo(miAvion,casillas, casillas[fila][columna], fila, columna);
+                              fila = fila+1;
+                          }else{fila = fila;}
+                    }else if(VentanaPrincipal.vehiculoId==2){
+                        if(tipoTerreno[fila+1][columna]==5 ||tipoTerreno[fila+1][columna]==6 ||tipoTerreno[fila+1][columna]==7 )
+                        {
+                            if(tipoTerreno[fila+1][columna]!=5){
+                                casillas[fila][columna].setIcon(null);
+                                movimiento.movimientoAbajo(miTanque,casillas, casillas[fila][columna], fila, columna);
+                                fila = fila+1;
+                            }else{fila = fila;}
+                        }
+                    }
+                }
+            
                 }
             @Override
                 public void keyReleased(KeyEvent e){

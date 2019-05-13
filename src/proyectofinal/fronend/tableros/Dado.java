@@ -10,7 +10,7 @@ package proyectofinal.fronend.tableros;
  * @author astridmc
  */
 public class Dado extends javax.swing.JPanel {
-
+int numeroSorteado = (int) (Math.random() * 5 + 1);
     /**
      * Creates new form Dado
      */
@@ -27,51 +27,70 @@ public class Dado extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lblNumero = new javax.swing.JLabel();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
 
         setBackground(new java.awt.Color(200, 42, 42));
 
-        jLabel1.setFont(new java.awt.Font("Dyuthi", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel1.setText("jLabel1");
+        lblNumero.setFont(new java.awt.Font("Dyuthi", 0, 60)); // NOI18N
+        lblNumero.setForeground(new java.awt.Color(254, 254, 254));
+
+        jInternalFrame1.setVisible(true);
+
+        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
+        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
+        jInternalFrame1Layout.setHorizontalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jInternalFrame1Layout.setVerticalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jInternalFrame1)
             .addGroup(layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addGap(76, 76, 76)
+                .addComponent(lblNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(117, 117, 117)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(87, 87, 87)
+                .addComponent(lblNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(98, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     public void seisCaras(){
-        
-        int numeroRandom = (int) (Math.random() * 5 + 1);
-        
+        for(int i =0 ; i<numeroSorteado;i++){
+            int numeroRandom = (int) (Math.random() * 5 + 1);
+            lblNumero.setText(Integer.toString(numeroRandom));
+        }
     }
     
     public void cienCaras(){
-        
-        int numeroRandom = (int) (Math.random() * 99 + 1);
-        
+        for(int i =0 ; i<numeroSorteado;i++){
+            int numeroRandom = (int) (Math.random() * 99 + 1);
+            lblNumero.setText(Integer.toString(numeroRandom));
+        }
     }
     
     public void tresCaras(){
-        
-        int numeroRandom = (int) (Math.random() * 2 + 1);
-        
+         for(int i =0 ; i<numeroSorteado;i++){
+            int numeroRandom = (int) (Math.random() *2 + 1);
+            lblNumero.setText(Integer.toString(numeroRandom));
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JLabel lblNumero;
     // End of variables declaration//GEN-END:variables
 }

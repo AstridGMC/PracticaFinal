@@ -8,14 +8,23 @@ import javax.swing.JLabel;
 public class Avion extends Vehiculo {
    protected int posicionX;
    protected int posicionY;
+   protected String nombre;
    JLabel nuevos = new JLabel();
    ImageIcon avion = new ImageIcon("avion.png");
-   
-   
-   public void avion(){
-       
-   }
 
+    public Avion(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Avion() {
+    }
+   
+    
+    
+    public void avion(){
+
+    }
+   
     public ImageIcon getImagen() {
         return avion;
     }

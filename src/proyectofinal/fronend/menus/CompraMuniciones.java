@@ -29,6 +29,7 @@ public class CompraMuniciones extends javax.swing.JPanel {
 
         municionesTipo = new javax.swing.ButtonGroup();
         municionesPaquete = new javax.swing.ButtonGroup();
+        jPasswordField1 = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         labelTipo = new javax.swing.JLabel();
@@ -41,6 +42,8 @@ public class CompraMuniciones extends javax.swing.JPanel {
         rbtnMayor = new javax.swing.JRadioButton();
         rbtnMenor = new javax.swing.JRadioButton();
         btnAceptar = new javax.swing.JButton();
+
+        jPasswordField1.setText("jPasswordField1");
 
         setBackground(new java.awt.Color(198, 253, 220));
 
@@ -258,6 +261,7 @@ public class CompraMuniciones extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel labelTipo;
     private javax.swing.ButtonGroup municionesPaquete;
     public static javax.swing.ButtonGroup municionesTipo;

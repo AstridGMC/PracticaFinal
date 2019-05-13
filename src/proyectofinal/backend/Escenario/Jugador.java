@@ -10,15 +10,18 @@ public class Jugador {
     protected  int experiencia =0;
     protected  int necesario = 50;    //experiencia necesaria para subir de nivel   
     protected ArrayList <Jugador> jugadores = new ArrayList();
-    protected Vehiculo[] Vehiculos =new Vehiculo[2];
+    protected Vehiculo[] Vehiculos =new Vehiculo[3];
     public Arma arma;
+    protected String ID;
     
     
     static Scanner miScaner = new Scanner(System.in);
 
-    Jugador() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    public Jugador() {
+        
     }
+
 
     public Arma getArma() {
         return arma;
@@ -27,12 +30,19 @@ public class Jugador {
     public void setArma(Arma arma) {
         this.arma = arma;
     }
-    
-    
 
-    public  Jugador(String nombre ) {
+    public Jugador(String nombre, String ID) {
+        this.nombre = nombre;
+        this.ID = ID;
     }
-    
+
+    public Vehiculo[] getVehiculos() {
+        return Vehiculos;
+    }
+
+    public void setVehiculos(int i, Vehiculo vehiculo) {
+        this.Vehiculos[i] = vehiculo;
+    }
     
 
     public  int getNivel() {
