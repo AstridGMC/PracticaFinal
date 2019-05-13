@@ -9,26 +9,22 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import static proyectofinal.backend.Escenario.AlmacenArma.armasArchivo;
 
-
-public class AlmacenArma {
-
-    protected ArrayList <Arma> armasJugador = new ArrayList();
+public class AlmacenVehiculos {
     
-    static File armasArchivo = new File("Armas.txt");
+    static File vehiculosArchivo = new File("Vehiculos.txt");
     static FileOutputStream salida = null;
     static FileInputStream entrada = null;
     static ObjectOutputStream escritor = null;
     static ObjectInputStream lector = null;
     
-    public static  void alamacenarArmas(Arma arma, ArrayList <Arma> armas){
+    public static  void alamacenarArmas(Vehiculo vehiculo, ArrayList <Vehiculo> vehiculos){
         try {
             armasArchivo.createNewFile();
-            salida = new FileOutputStream(armasArchivo);
+            salida = new FileOutputStream(vehiculosArchivo);
             escritor = new ObjectOutputStream(salida);
-            escritor.writeObject(armas);
+            escritor.writeObject(vehiculos);
         } catch (IOException ex) {
             System.err.println(ex.getMessage());
         }
@@ -46,12 +42,12 @@ public class AlmacenArma {
         }
     }
    // lectura del archivo
-    public void leerArmas(Arma arma,ArrayList <Arma> armas){
+    public void leerArmas(Vehiculo vehiculo, ArrayList <Vehiculo> vehiculos){
         try {
             entrada = new FileInputStream(armasArchivo);
             lector = new ObjectInputStream(entrada);
-            armas = (ArrayList <Arma> )lector.readObject();
-            System.out.println(arma.toString());
+            vehiculos = (ArrayList <Vehiculo> )lector.readObject();
+            System.out.println(vehiculo.toString());
         } catch (FileNotFoundException ex) {
             System.err.println(ex.getMessage());
         } catch (IOException | ClassNotFoundException ex) {
@@ -59,3 +55,5 @@ public class AlmacenArma {
         }
     }
 }
+    
+

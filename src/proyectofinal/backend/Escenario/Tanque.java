@@ -23,7 +23,7 @@ public class Tanque extends Vehiculo{
 
     @Override
     public int getAtaque() {
-        return ataque;
+        return 10;
     }
 
     @Override
@@ -33,7 +33,7 @@ public class Tanque extends Vehiculo{
 
     @Override
     public int getDefensa() {
-        return defensa;
+        return 6;
     }
 
     @Override
@@ -43,7 +43,7 @@ public class Tanque extends Vehiculo{
 
     @Override
     public int getPunteria() {
-        return punteria;
+        return 60;
     }
 
     @Override
@@ -81,15 +81,7 @@ public class Tanque extends Vehiculo{
         this.PP = PP;
     }
 
-    @Override
-    public int getVelocidadDisparo() {
-        return velocidadDisparo;
-    }
 
-    @Override
-    public void setVelocidadDisparo(int velocidadDisparo) {
-        this.velocidadDisparo = velocidadDisparo;
-    }
 
     @Override
     public  ImageIcon getImagen() {

@@ -1,9 +1,10 @@
 package proyectofinal.backend.Escenario;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class Arma {
+public class Arma implements Serializable{
     
     protected int municiones;
     protected  String nombreArma;
@@ -11,7 +12,7 @@ public class Arma {
     protected  int velocidadDisparoA;
     protected  int ataqueA;
     protected  int precioA;
-     protected ArrayList <Arma> armas = new ArrayList();
+    public static ArrayList <Arma> armas = new ArrayList();
 
     public Arma(String nombreArma, int punteriaArma, int VelocidadDisparoA, int AtaqueA) {
      

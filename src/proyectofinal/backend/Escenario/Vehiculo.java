@@ -1,5 +1,6 @@
   
 package proyectofinal.backend.Escenario;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import proyectofinal.backend.Escenario.Jugador;
@@ -13,8 +14,9 @@ public class Vehiculo {
     protected int municiones;
     protected  int HP = (50 );
     protected  int PP = (3 + 2 );
-    protected  int velocidadDisparo;
+    
     static ImageIcon imagen = new ImageIcon("portada.png");
+    public static ArrayList <Vehiculo> vehiculos = new ArrayList();
     
     public static void vehiculo(){
         
@@ -91,14 +93,6 @@ public class Vehiculo {
 
     public void setPP(int PP) {
         this.PP = PP;
-    }
-
-    public int getVelocidadDisparo() {
-        return velocidadDisparo;
-    }
-
-    public void setVelocidadDisparo(int velocidadDisparo) {
-        this.velocidadDisparo = velocidadDisparo;
     }
 
   

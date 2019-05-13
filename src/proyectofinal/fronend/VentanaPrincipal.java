@@ -12,6 +12,7 @@ import proyectofinal.backend.Escenario.CombateComputadora;
 import proyectofinal.backend.Escenario.Jugador;
 import proyectofinal.fronend.menus.CreaArmas;
 import proyectofinal.fronend.menus.CreaVehiculo;
+import proyectofinal.fronend.menus.EscogerJugador;
 import proyectofinal.fronend.menus.Modalidad;
 import proyectofinal.fronend.menus.PedirNombre;
 import proyectofinal.fronend.menus.Salir;
@@ -33,6 +34,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     EscenarioPlaya nuevaPlaya = new EscenarioPlaya();
     EscenarioJungla nuevaJungla = new EscenarioJungla();
     EscenarioMontañoso nuevoMontañoso = new EscenarioMontañoso();
+    EscogerJugador jugadorEnCurso = new EscogerJugador(this);
     Dado dado = new Dado();
     private static int disparado=9;
     Salir salida = new Salir(this);

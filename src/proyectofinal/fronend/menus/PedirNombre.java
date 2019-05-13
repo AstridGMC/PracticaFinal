@@ -128,8 +128,8 @@ public class PedirNombre extends javax.swing.JDialog {
         if(txtGuardaNombre.getText()==null){
             JOptionPane.showMessageDialog(null,"Nombre Requerido");
         }else{
-            identificador= (identificador+1);
             nombre = txtGuardaNombre.getText();
+            lblGuardado.setText("Su Perfil se ha creado exitosamente su ID es:"+ (identificador +1));
             lblGuardado.setVisible(true);
             Jugador nuevoJugador = new Jugador();
             nuevoJugador.setNombre(nombre);
@@ -137,13 +137,19 @@ public class PedirNombre extends javax.swing.JDialog {
             System.out.println(Jugador.jugadores.get(0).getNombre());
             txtGuardaNombre.setText("");
             this.setVisible(false);
+             identificador= (identificador+1);
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void txtGuardaNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtGuardaNombreMouseClicked
         lblGuardado.setVisible(false);
     }//GEN-LAST:event_txtGuardaNombreMouseClicked
-
+    
+    public void recorrerJugadores(){
+        for(int x=0;x<Jugador.jugadores.size();x++) {
+            Jugador.jugadores.get(x).getNombre();
+        }
+    }
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;

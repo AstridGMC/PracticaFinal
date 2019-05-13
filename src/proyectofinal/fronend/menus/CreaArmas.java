@@ -6,7 +6,9 @@
 package proyectofinal.fronend.menus;
 
 import javax.swing.JOptionPane;
+import proyectofinal.backend.Escenario.AlmacenArma;
 import proyectofinal.backend.Escenario.Arma;
+import proyectofinal.backend.Escenario.Jugador;
 
 /**
  *
@@ -138,9 +140,11 @@ public class CreaArmas extends javax.swing.JDialog {
             
             nombreArma = txtNombreArma.getText();
             Arma nuevaArma = new Arma(nombreArma);
+            nuevaArma.setNombreArma(nombreArma);
             nuevaArma.agregarArmas(nuevaArma);
             lblGuardado.setVisible(true);
             txtNombreArma.setText("");
+            AlmacenArma.alamacenarArmas(nuevaArma, Arma.armas);
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
