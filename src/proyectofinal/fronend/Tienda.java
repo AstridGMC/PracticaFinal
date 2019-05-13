@@ -7,12 +7,14 @@ import javax.swing.JPanel;
 import proyectofinal.backend.Escenario.Jugador;
 import proyectofinal.fronend.menus.CompraArmas;
 import proyectofinal.fronend.menus.CompraMuniciones;
+import proyectofinal.fronend.menus.CompraKIt;
 
 
 public class Tienda extends javax.swing.JDialog {
     
     CompraMuniciones municiones = new CompraMuniciones();
     CompraArmas armas = new CompraArmas();
+    CompraKIt kit = new CompraKIt();
 
     public JPanel getPanelOpcion() {
         return panelOpcion;
@@ -163,7 +165,7 @@ public class Tienda extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void listaJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaJugadorActionPerformed
-        // TODO add your handling code here:
+         oroDisponible.setText("Tu Oro disponible es:"+ Jugador.jugadores.get(0).getMyOro());
     }//GEN-LAST:event_listaJugadorActionPerformed
 
     private void productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productoActionPerformed
@@ -176,6 +178,10 @@ public class Tienda extends javax.swing.JDialog {
             panelOpcion.setVisible(false);
             panelOpcion.removeAll();
             agregarComprarArma();
+        }else if (producto.getSelectedItem().toString().equals("kits")){
+            panelOpcion.setVisible(false);
+            panelOpcion.removeAll();
+            agregarComprarKit();
         }
         
     }//GEN-LAST:event_productoActionPerformed
@@ -197,16 +203,32 @@ public class Tienda extends javax.swing.JDialog {
         if(Jugador.jugadores.isEmpty()){
             JOptionPane.showMessageDialog(null,"Nombre Requerido");
         }else{
-             oroDisponible.setText("Tu Oro disponible es:"+ Jugador.jugadores.get(0).getMyOro());
+            
             panelOpcion.setVisible(true);
             panelOpcion.add(armas);
             armas.setSize(700, 400);
             panelOpcion.setPreferredSize(new Dimension(700, 300));
             armas.setVisible(true);
             panelOpcion.revalidate();
-            
+             oroDisponible.setText("Tu Oro disponible es:"+ Jugador.jugadores.get(0).getMyOro());
         }
     }
+    
+    private void agregarComprarKit(){
+       if(Jugador.jugadores.isEmpty()){
+            JOptionPane.showMessageDialog(null,"Nombre Requerido");
+        }else{ 
+           
+            panelOpcion.setVisible(true);
+            panelOpcion.add(kit);
+            kit.setSize(700, 400);
+            panelOpcion.setPreferredSize(new Dimension(700, 300));
+            kit.setVisible(true);
+            panelOpcion.revalidate();
+             oroDisponible.setText("Tu Oro disponible es:"+ Jugador.jugadores.get(0).getMyOro());
+        }
+       }
+    
     
     private void diseño(){
         
